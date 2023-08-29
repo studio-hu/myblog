@@ -57,6 +57,18 @@ const config = {
             }),
         ],
     ],
+    plugins: [
+        [
+            '@docusaurus/plugin-content-docs',
+            {
+                id: 'docs-java',
+                path: 'docs-java',
+                routeBasePath: 'docs-java',
+                sidebarPath: require.resolve('./sidebars.js'),
+                // ... other options
+            },
+        ],
+    ],
 
     themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -76,7 +88,7 @@ const config = {
                         position: 'left',
                         label: '学习笔记',
                     },
-                    {to: '/JavaSE', label: 'JavaSE', position: 'left'},
+                    {to: '/docs-java/intro', label: 'java基础', position: 'left'},
                     {to: '/blog', label: '博客', position: 'left'},
                     {
                         href: 'https://github.com/facebook/docusaurus',
