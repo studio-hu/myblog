@@ -23,7 +23,7 @@
   - db目录，一个小型的数据库，即JavaDB
   - src.zip文件，JDK核心类的源代码文件
 
-<span style={{fontSize:"20px",fontWeight:"bold",color:"green"}}>【练习】</span>
+【练习】
 
 1. 完成JDK安装，可去官网下载，或使用附件工具中的安装文件
 
@@ -78,11 +78,11 @@
 
      ![环境配置-编辑环境变量-Path](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202308291606992.jpg)
 
-  <span style={{fontSize:"20px",fontWeight:"bold",color:"blue"}}>【演示】</span>
+  【演示】
 
   1. 使用附件\mycommand.bat文件演示配置环境变量与不配置的效果
 
-  <span style={{fontSize:"20px",fontWeight:"bold",color:"green"}}>【练习】</span>
+  【练习】
 
   1. 练习演示的内容，熟悉环境变量的作用
   2. **保证javac、java命令能直接运行**
@@ -114,7 +114,7 @@ public class HelloWorld{
 - System.out.println：打印到控制台的方法
 - "Hello World"：打印字符串
 
-<span style={{color:"red",fontWeight:"bold"}}>可能不懂，但没关系，先照着写，找点感觉，这些内容，我们会慢慢会展开讲！</span>
+可能不懂，但没关系，先照着写，找点感觉，这些内容，我们会慢慢会展开讲！
 
 #### 2、运行HelloWorld类
 
@@ -126,7 +126,7 @@ public class HelloWorld{
 
 - 具体编译和运行步骤
 
-  1. **编译**，使用javac命令进行编译（<span style={{color:"red"}}>注意：编译的是源文件</span>）
+  1. **编译**，使用javac命令进行编译（注意：编译的是源文件）
 
      - 编译成功，会在.java文件目录生成一个字节码文件HelloWorld.class
 
@@ -141,7 +141,7 @@ public class HelloWorld{
        #javac HelloWorld.java -encoding UTF-8
        ```
 
-  2. **运行**，使用java命令进行运行（<span style={{color:"red"}}>注意：运行的是类</span>）
+  2. **运行**，使用java命令进行运行（注意：运行的是类）
 
     - 运行成功，输出期待的内容”Hello World!“
 
@@ -158,7 +158,7 @@ public class HelloWorld{
 
      ![HelloWorld运行](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202308291607524.jpg)
 
-<span style={{fontSize:"20px",fontWeight:"bold",color:"green"}}>【练习】</span>
+【练习】
 
 1. 练习演示内容，编写第一个Java程序，并运行，要求输出如下内容：
 
@@ -166,7 +166,7 @@ public class HelloWorld{
 
    你好，世界！
 
-### 带包和参数的Java程序<span style={{fontWeight:"bold",color:"lightgreen"}}>【扩展】</span>
+### 带包和参数的Java程序【扩展】
 
 - 在后续的应用中，类都会规划在包中，其作用类似于目录（文件夹），并且有要求：
 
@@ -217,7 +217,7 @@ public class HelloWorld{
 
     ![第一个Java程序-带包和参数的Java程序-输出结果](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202308291608218.jpg)
 
-  <span style={{fontSize:"20px",fontWeight:"bold",color:"green"}}>【练习】</span>
+  【练习】
 
   1. 练习演示内容，编写一个Java程序，能够接收多个参数，并输出，然后运行
 
@@ -256,15 +256,15 @@ public class HelloWorld{
   - println，输出一行文本，并换行
   - print，输出文本，不换行
 
-<span style={{fontSize:"20px",fontWeight:"bold",color:"blue"}}>【演示】</span>
+【演示】
 
 1. 使用System.out输出文本并换行、输出多个文本但不换行
 
-<span style={{fontSize:"20px",fontWeight:"bold",color:"green"}}>【练习】</span>
+【练习】
 
 1. 练习演示的内容，编写代码，并编译运行
 
-### <span style={{fontWeight:"bold",color:"green"}}>实战和作业</span>
+### 实战和作业
 
 1. 使用文本编辑器编写类HelloToSomeone，然后编译、运行；运行时接收2个参数，分别为姓氏、名字；然后输入，输出：“你好，姓氏.名字！”，如：“你好，尼古拉斯.赵四！”
 

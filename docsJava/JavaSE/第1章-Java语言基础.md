@@ -58,7 +58,7 @@
 
     <center>Java平台对比（图片来自网络）</center>
 
-  <span style={{color:"red"}}>注意：Java SE是学习好Java技术，并进行企业级应用开发的基础</span>
+  注意：Java SE是学习好Java技术，并进行企业级应用开发的基础
 
 
 ### Java语言特点
@@ -158,11 +158,11 @@
 
 <center>Java程序加载与执行过程</center>
 
-<span style={{fontSize:"20px",fontWeight:"bold",color:"blue"}}>【演示】</span>
+【演示】
 
 - 演示一个Java源代码文件，编译成字节码文件，并执行的过程
 
-<span style={{fontSize:"20px",fontWeight:"bold",color:"green"}}>【练习】</span>
+【练习】
 
 1. 提问
    1. JDK、JRE、JVM的全称与关系
@@ -201,7 +201,7 @@
 
 - 附件中提供了EditPlus和Notepad++的安装文件，可直接使用进行安装，也可以去官网下载安装
 
-<span style={{fontSize:"20px",fontWeight:"bold",color:"green"}}>【练习】</span>
+【练习】
 
 1. 安装一个EditPlus或Notepad++文本编辑器，附件\第1章\软件工具下提供了安装文件
 
@@ -218,7 +218,7 @@
 - 要做到主键盘不看键盘输入，大家用文本编辑器中输入一下26个字母和数字尝试
 - 附件有一个打字通软件，供大家熟悉键盘并练习
 
-<span style={{fontSize:"20px",fontWeight:"bold",color:"green"}}>【练习】</span>
+【练习】
 
 1. 熟悉一下打字通的使用
 
@@ -280,23 +280,23 @@
   - **盘符:**，切换磁盘，cd命令切换成非当前磁盘路径时，如果不会直接切换，此时使用此命令可以切换磁盘；如：d:，将切换到d盘当前目录
   - **cls**，清屏命令，清除所有命令行内容；如：cls，将当前命令行内容清空
   - **exit**，退出命令提示符界面；如：exit，将退出当前命令行窗口
-  - mkdir，创建目录，在当前目录下，创建一个子目录；如：mkdir temp，将在当前目录下创建一个名为temp的子目录<span style={{fontWeight:"bold",color:"lightgreen"}}>【扩展】</span>
-  - rmdir，删除目录，在当前目录下，删除指定存在的子目录，目录需要是空目录；如：rmdir temp，将删除当前目录下的子目录temp<span style={{fontWeight:"bold",color:"lightgreen"}}>【扩展】</span>
+  - mkdir，创建目录，在当前目录下，创建一个子目录；如：mkdir temp，将在当前目录下创建一个名为temp的子目录【扩展】
+  - rmdir，删除目录，在当前目录下，删除指定存在的子目录，目录需要是空目录；如：rmdir temp，将删除当前目录下的子目录temp【扩展】
   - tree，以树状显示目录层次，同时查看文件时，使用/F参数；如：tree temp /F，将以树形结构显示temp目录下的所有文件和目录
-  - echo，创建文件并添加内容命令，如：<span style={{fontWeight:"bold",color:"lightgreen"}}>【扩展】</span>
-    - echo 11111<span style={{color:"red",fontWeight:"bold"}}>></span>test.txt，创建文件test.txt，并将文件内容设置为11111
-    - echo 2222<span style={{color:"red",fontWeight:"bold"}}>>></span>test.txt，更新文件test.txt的内容，往文件尾追加2222
-  - more，查看文件内容命令；如：more test.txt，将显示test.txt文件内容<span style={{fontWeight:"bold",color:"lightgreen"}}>【扩展】</span>
-  - del 文件名，删除指定 文件；如：del file.txt，将删除当前目录下的文件file.txt<span style={{fontWeight:"bold",color:"lightgreen"}}>【扩展】</span>
+  - echo，创建文件并添加内容命令，如：【扩展】
+    - echo 11111>>test.txt，创建文件test.txt，并将文件内容设置为11111
+    - echo 2222>>test.txt，更新文件test.txt的内容，往文件尾追加2222
+  - more，查看文件内容命令；如：more test.txt，将显示test.txt文件内容【扩展】
+  - del 文件名，删除指定 文件；如：del file.txt，将删除当前目录下的文件file.txt【扩展】
   - ...
 
-<span style={{fontSize:"20px",fontWeight:"bold",color:"blue"}}>【演示】</span>
+【演示】
 
 1. 演示创建如下目录层次
 
 ![演示-创建目录和文件](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202308291557904.jpg)
 
-<span style={{fontSize:"20px",fontWeight:"bold",color:"green"}}>【练习】</span>
+【练习】
 
 1. 完成上述演示，练习目录和文件的创建，熟悉命令使用，并对文件内容有如下要求
 
@@ -316,7 +316,7 @@
 
       cc
 
-### <span style={{fontWeight:"bold",color:"green"}}>实战和作业</span>
+### 实战和作业
 
 1. 熟悉几个DOS命令的使用（自己熟悉即可）
 2. 背诵附件提供的英文单词（后面的课程中会多次抽查）
