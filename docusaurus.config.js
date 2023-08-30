@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
     title: 'My Site',
     tagline: 'Dinosaurs are cool',
-    favicon: 'img/logo.jpg',
+    favicon: 'img/favicon_logo.ico',
 
     // Set the production url of your site here
     url: 'https://your-docusaurus-test-site.com',
@@ -61,10 +61,10 @@ const config = {
         [
             '@docusaurus/plugin-content-docs',
             {
-                id: 'docs-java',
-                path: 'docs-java',
-                routeBasePath: 'docs-java',
-                sidebarPath: require.resolve('./sidebars.js'),
+                id: 'docsJava',
+                path: 'docsJava',
+                routeBasePath: 'docsJava',
+                // sidebarPath: require.resolve('./sidebars.js'),
                 // ... other options
             },
         ],
@@ -79,7 +79,7 @@ const config = {
                 title: '小胡的个人星球',
                 logo: {
                     alt: 'My Site Logo',
-                    src: 'img/logo.svg',
+                    src: 'img/logo_circle.png',
                 },
                 items: [
                     {
@@ -88,7 +88,7 @@ const config = {
                         position: 'left',
                         label: '学习笔记',
                     },
-                    {to: '/docs-java/intro', label: 'java基础', position: 'left'},
+                    {to: '/docsJava/category/javase', label: 'java基础', position: 'left'},
                     {to: '/blog', label: '博客', position: 'left'},
                     {
                         href: 'https://github.com/facebook/docusaurus',

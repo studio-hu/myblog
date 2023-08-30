@@ -1,5 +1,3 @@
-## 第1章-Java语言基础
-
 ### 什么是Java语言
 
 - 是Sun Microsystems 公司的James Gosling 在1990 年创建的，于1995 年公布于世（一般说Java 诞生于1995 年）
