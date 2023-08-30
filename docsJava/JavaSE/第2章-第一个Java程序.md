@@ -1,3 +1,6 @@
+---
+sidebar_position: 2
+---
 ### 安装JDK
 
 - 是进行**Java开发的前提条件**
