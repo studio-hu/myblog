@@ -91,7 +91,7 @@ const config = {
                     {to: '/docsJava/category/javase', label: 'java基础', position: 'left'},
                     {to: '/blog', label: '博客', position: 'left'},
                     {
-                        href: 'https://github.com/facebook/docusaurus',
+                        href: 'https://github.com/studio-hu/myblog',
                         label: 'GitHub',
                         position: 'right',
                     },
@@ -135,7 +135,7 @@ const config = {
                             },
                             {
                                 label: 'GitHub',
-                                href: 'https://github.com/facebook/docusaurus',
+                                href: 'https://github.com/studio-hu/myblog',
                             },
                         ],
                     },
