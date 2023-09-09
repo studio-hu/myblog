@@ -91,10 +91,18 @@ const config = {
                     {to: '/docsJava/category/javase', label: 'java基础', position: 'left'},
                     {to: '/blog', label: '博客', position: 'left'},
                     {
+                        label: '更多',
+                        position: 'left',
+                        items: [
+                            { to: '#', label: '(编写中...)' },
+                        ],
+                    },
+                    {
                         href: 'https://github.com/studio-hu/myblog',
                         label: 'GitHub',
                         position: 'right',
                     },
+
                 ],
             },
             footer: {
