@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: 'My Site',
-    tagline: 'Dinosaurs are cool',
+    title: '全栈开发工程师养成记',
+    tagline: '欢迎来到我的星球',
     favicon: 'img/favicon_logo.ico',
 
     // Set the production url of your site here
@@ -82,19 +82,20 @@ const config = {
                     src: 'img/logo_circle.png',
                 },
                 items: [
-                    {
-                        type: 'docSidebar',
-                        sidebarId: 'tutorialSidebar',
-                        position: 'left',
-                        label: '学习笔记',
-                    },
-                    {to: '/docsJava/category/javase', label: 'java基础', position: 'left'},
+                    // {
+                    //     // type: 'docSidebar',
+                    //     // sidebarId: 'tutorialSidebar',
+                    //     to:'/docs/intro',
+                    //     position: 'left',
+                    //     label: '学习笔记',
+                    // },
+                    {to: '/docsJava/category/JavaSE', label: 'Java基础', position: 'left'},
                     {to: '/blog', label: '博客', position: 'left'},
                     {
                         label: '更多',
                         position: 'left',
                         items: [
-                            { to: '#', label: '(编写中...)' },
+                            {to: '#', label: '(编写中...)'},
                         ],
                     },
                     {
@@ -109,16 +110,16 @@ const config = {
                 style: 'dark',
                 links: [
                     {
-                        title: 'Docs',
+                        title: '文档',
                         items: [
                             {
-                                label: 'Tutorial',
-                                to: '/docs/intro',
+                                label: 'Java基础',
+                                to: '/docsJava/category/JavaSE',
                             },
                         ],
                     },
                     {
-                        title: 'Community',
+                        title: '社区',
                         items: [
                             {
                                 label: 'Stack Overflow',
@@ -135,7 +136,7 @@ const config = {
                         ],
                     },
                     {
-                        title: 'More',
+                        title: '更多',
                         items: [
                             {
                                 label: 'Blog',
@@ -148,7 +149,7 @@ const config = {
                         ],
                     },
                 ],
-                copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+                copyright: `Copyright © ${new Date().getFullYear()} 小胡的个人星球.&nbsp;&nbsp;<a href="https://beian.miit.gov.cn">粤ICP备2022145980号</a>`,
             },
             prism: {
                 theme: lightCodeTheme,
