@@ -139,7 +139,7 @@ const config = {
                         title: '更多',
                         items: [
                             {
-                                label: 'Blog',
+                                label: '博客',
                                 to: '/blog',
                             },
                             {
