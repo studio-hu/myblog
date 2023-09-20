@@ -156,6 +156,9 @@ const config = {
                 darkTheme: darkCodeTheme,
             },
         }),
+    scripts: [
+        './custom.js'
+    ],
 };
 
 module.exports = config;
