@@ -122,17 +122,13 @@ const config = {
                         title: '社区',
                         items: [
                             {
-                                label: 'Stack Overflow',
-                                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                                label: '稀土掘金',
+                                href: 'https://juejin.cn/user/4182974648031015/posts',
                             },
                             {
-                                label: 'Discord',
-                                href: 'https://discordapp.com/invite/docusaurus',
-                            },
-                            {
-                                label: 'Twitter',
-                                href: 'https://twitter.com/docusaurus',
-                            },
+                                label: 'CSDN',
+                                href: 'https://blog.csdn.net/weixin_51665139',
+                            }
                         ],
                     },
                     {
