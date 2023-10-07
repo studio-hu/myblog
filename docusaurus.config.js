@@ -66,7 +66,17 @@ const config = {
                 routeBasePath: 'docsJava',
                 // sidebarPath: require.resolve('./sidebars.js'),
                 // ... other options
-            },
+            }
+        ],
+        [
+            '@docusaurus/plugin-content-docs',
+            {
+                id: 'docsDB',
+                path: 'docsDB',
+                routeBasePath: 'docsDB',
+                // sidebarPath: require.resolve('./sidebars.js'),
+                // ... other options
+            }
         ],
     ],
 
@@ -90,6 +100,7 @@ const config = {
                     //     label: '学习笔记',
                     // },
                     {to: '/docsJava/category/JavaSE', label: 'Java基础', position: 'left'},
+                    {to: '/docsDB/category/MySQL', label: '数据库', position: 'left'},
                     {to: '/blog', label: '博客', position: 'left'},
                     {
                         label: '更多',
