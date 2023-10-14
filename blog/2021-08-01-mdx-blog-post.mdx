@@ -1,20 +1,26 @@
 ---
 slug: mdx-blog-post
-title: MDX Blog Post
+title: MDX文章示例
 authors: [hyq]
 tags: [docusaurus]
 ---
 
 Blog posts support [Docusaurus Markdown features](https://docusaurus.io/docs/markdown-features), such as [MDX](https://mdxjs.com/).
 
+在现代Web开发中，Markdown已经成为了一种广泛使用的轻量级标记语言。它简单易学、易于阅读和编写，并且可以轻松转换为HTML等其他格式。然而，Markdown的局限性在于它缺之动态交互和可复用组件的能力。为了克服这些限制，MDX应运而生。
+
+MDX是一种将Markdown与React组件混合在一起的语法扩展。它允许开发人员在Markdown文档中直接使用React组件，从而为文档添加动态交互和复杂的功能。通过MDX，开发人员可以将Markdown从仅仅是静态文本的描述语言，转变为具有更高度可定制性和交互性的内容展示工具。
+
+下面我们来看一个简单的例子，展示如何在MDX中使用React组件 :
+
 :::tip
 
-Use the power of React to create interactive blog posts.
+使用React的强大功能来创建交互式博客文章。
 
 ```js
-<button onClick={() => alert('button clicked!')}>Click me!</button>
+<button onClick={() => alert('按钮被点击！')}>点我</button>
 ```
 
-<button onClick={() => alert('button clicked!')}>Click me!</button>
+<button onClick={() => alert('按钮被点击！')}>点我</button>
 
 :::
