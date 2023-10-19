@@ -28,8 +28,8 @@ const config = {
     // metadata like html lang. For example, if your site is Chinese, you may want
     // to replace "en" with "zh-Hans".
     i18n: {
-        defaultLocale: 'en',
-        locales: ['en'],
+        defaultLocale: 'zh',
+        locales: ['zh'],
     },
 
     presets: [
@@ -63,9 +63,7 @@ const config = {
             {
                 id: 'docsJava',
                 path: 'docsJava',
-                routeBasePath: 'docsJava',
-                // sidebarPath: require.resolve('./sidebars.js'),
-                // ... other options
+                routeBasePath: 'docsJava'
             }
         ],
         [
@@ -73,9 +71,15 @@ const config = {
             {
                 id: 'docsDB',
                 path: 'docsDB',
-                routeBasePath: 'docsDB',
-                // sidebarPath: require.resolve('./sidebars.js'),
-                // ... other options
+                routeBasePath: 'docsDB'
+            }
+        ],
+        [
+            '@docusaurus/plugin-content-docs',
+            {
+                id: 'docsWeb',
+                path: 'docsWeb',
+                routeBasePath: 'docsWeb'
             }
         ],
     ],
@@ -101,6 +105,7 @@ const config = {
                     // },
                     {to: '/docsJava/category/JavaSE', label: 'Java基础', position: 'left'},
                     {to: '/docsDB/category/MySQL', label: '数据库', position: 'left'},
+                    {to: '/docsWeb/HTML', label: '前端', position: 'left'},
                     {to: '/blog', label: '博客', position: 'left'},
                     {
                         label: '更多',
