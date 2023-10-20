@@ -82,6 +82,14 @@ const config = {
                 routeBasePath: 'docsWeb'
             }
         ],
+        [
+            '@docusaurus/plugin-content-docs',
+            {
+                id: 'docsGit',
+                path: 'docsGit',
+                routeBasePath: 'docsGit'
+            }
+        ],
     ],
 
     themeConfig:
@@ -111,7 +119,7 @@ const config = {
                         label: '更多',
                         position: 'left',
                         items: [
-                            {to: '#', label: '(编写中...)'},
+                            {to: '/docsGit/git', label: 'Git'},
                         ],
                     },
                     {
