@@ -1,4 +1,4 @@
-# Spring Security
+# Spring Security入门
 
 ## 1.简介
 
@@ -29,6 +29,42 @@ Spring Security是一个框架，提供 认证（authentication）、授权（au
     <artifactId>spring-boot-starter-security</artifactId>
 </dependency>
 ```
+
+其他依赖
+
+```xml
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <optional>true</optional>
+</dependency>
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>mybatis-plus-boot-starter</artifactId>
+    <version>3.5.3.1</version>
+</dependency>
+<dependency>
+    <groupId>com.mysql</groupId>
+    <artifactId>mysql-connector-j</artifactId>
+</dependency>
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>druid-spring-boot-starter</artifactId>
+    <version>1.2.16</version>
+</dependency>
+<dependency>
+    <groupId>com.auth0</groupId>
+    <artifactId>java-jwt</artifactId>
+    <version>4.4.0</version>
+</dependency>
+<dependency>
+    <groupId>com.alibaba.fastjson2</groupId>
+    <artifactId>fastjson2</artifactId>
+    <version>2.0.41</version>
+</dependency>
+```
+
+
 
 ### 2.3声明一个测试接口
 
@@ -141,7 +177,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         queryWrapper.eq(User::getUsername, username);
         User user = userMapper.selectOne(queryWrapper);
         if (Objects.isNull(user)) {
-            throw new UsernameNotFoundException("用户名或密码错误");
+            throw new UsernameNotFoundException("用户不存在");
         }
         //TODO 查询用户权限信息并返回
         
@@ -220,9 +256,6 @@ public class LoginServiceImpl implements LoginService {
     public ApiResponse login(User user) {
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
         Authentication authenticate = authenticationManager.authenticate(authenticationToken);
-        if (Objects.isNull(authenticate)) {
-            throw new RuntimeException("登录失败");
-        }
         USERDETAILS principal = (USERDETAILS) authenticate.getPrincipal();
         String token = JwtUtils.generateToken(principal.getUser());
         HashMap<String, String> map = new HashMap<>();
@@ -233,9 +266,42 @@ public class LoginServiceImpl implements LoginService {
 
 ```
 
+JwtUtils
+
+```java
+public class JwtUtils {
+    private static final String SECRET = "mySecretKey";
+    //毫秒为单位
+    private static final Long EXPIRATION = 1000 * 60 * 60 * 2L;
+
+    public static String generateToken(User user) {
+        return JWT.create()
+                .withAudience(JSONObject.toJSONString(user))
+                .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION))
+                .withIssuedAt(new Date())
+                .sign(Algorithm.HMAC256(SECRET));
+    }
+
+    public static User verifyToken(String token) throws Exception {
+        String json = JWT.require(Algorithm.HMAC256(SECRET))
+                .build()
+                .verify(token)
+                .getAudience()
+                .get(0);
+        return JSONObject.parseObject(json, User.class);
+    }
+}
+```
+
 
 
 #### 3）认证过滤器实现
+
+:::tip
+
+在Spring Boot项目中`Filter`您可以从OncePerRequestFilter扩展，而不是实现，它是过滤器的基类，每个请求仅调用一次，并提供`doFilterInternal`带有`HttpServletRequest`和`HttpServletResponse`参数的方法
+
+:::
 
 ```java
 @Component
@@ -263,7 +329,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             UsernamePasswordAuthenticationToken authenticationToken =
                     new UsernamePasswordAuthenticationToken(userdetails, null, null);
             //将Authentication存入SecurityContextHolder
-            SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+            SecurityContext context = SecurityContextHolder.createEmptyContext();
+            context.setAuthentication(authenticationToken);
+            SecurityContextHolder.setContext(context);
             filterChain.doFilter(request, response);
         } catch (TokenExpiredException e) {
             String json = JSONObject.toJSONString(new ApiResponse<>(HttpStatus.FORBIDDEN.value(), "token过期"),
@@ -279,6 +347,23 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 }
 
 ```
+
+:::caution注意
+
+应该创建一个新的 `SecurityContext` 实例，而不是使用`SecurityContextHolder.getContext().setAuthentication(authentication)`，以避免多线程之间的竞争
+
+ 接下来，我们创建一个新的 `Authentication` 对象。Spring Security 并不关心在 `SecurityContext` 上设置了什么类型的 `Authentication` 实现。一个更常见的生产场景是 `UsernamePasswordAuthenticationToken(userDetails, password, authorities)`
+
+最后，我们在 `SecurityContextHolder` 上设置 `SecurityContext`。Spring Security 使用这些信息进行 授权
+
+:::
+
+替换UsernamePasswordAuthenticationFilter过滤器为我们自定义的过滤器
+
+
+
+![image-20231028175714314](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202310281757358.png)
+
 
 
 
@@ -471,7 +556,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         queryWrapper.eq(User::getUsername, username);
         User user = userMapper.selectOne(queryWrapper);
         if (Objects.isNull(user)) {
-            throw new UsernameNotFoundException("用户名或密码错误");
+            throw new UsernameNotFoundException("用户不存在");
         }
         // 查询用户权限信息
         List<String> authorize = userMapper.authorize(user.getId());
@@ -512,7 +597,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             UsernamePasswordAuthenticationToken authenticationToken =
                      new UsernamePasswordAuthenticationToken(userdetails, null, userdetails.getAuthorities());
             //将Authentication存入SecurityContextHolder
-            SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+            SecurityContext context = SecurityContextHolder.createEmptyContext();
+            context.setAuthentication(authenticationToken);
+            SecurityContextHolder.setContext(context);
             filterChain.doFilter(request, response);
         } catch (TokenExpiredException e) {
             String json = JSONObject.toJSONString(new ApiResponse<>(HttpStatus.FORBIDDEN.value(), "token过期"),
@@ -649,6 +736,10 @@ public interface UserMapper extends BaseMapper<User> {
 </mapper>
 ```
 
+![image-20231028175244607](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202310281752725.png)
+
+
+
 ## 6.自定义失败处理
 
 - 如果是认证过程中出现的异常会被封装成AuthenticationException然后调用`AuthenticationEntryPoint`对象的方法去进行异常处理。
@@ -677,6 +768,7 @@ public class MyAuthenticationHandler implements AccessDeniedHandler, Authenticat
             extracted(request, response, HttpStatus.UNAUTHORIZED, "用户名或密码错误");
             return;
         }
+        //未携带token访问或未认证的用户访问
         if (exceptionType == InsufficientAuthenticationException.class) {
             extracted(request, response, HttpStatus.UNAUTHORIZED, "非法访问");
             return;

@@ -122,7 +122,7 @@ const config = {
                     {to: '/docsJava/category/JavaSE', label: 'Java基础', position: 'left'},
                     {to: '/docsDB/category/MySQL', label: '数据库', position: 'left'},
                     {to: '/docsWeb/HTML', label: '前端', position: 'left'},
-                    {to: '/docsSpring/SpringSecurity', label: 'Spring全家桶', position: 'left'},
+                    {to: '/docsSpring/SpringSecurity/SpringSecurity入门', label: 'Spring全家桶', position: 'left'},
                     {to: '/blog', label: '博客', position: 'left'},
                     {
                         label: '更多',
