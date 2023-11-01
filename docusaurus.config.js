@@ -98,6 +98,14 @@ const config = {
                 routeBasePath: 'docsSpring'
             }
         ],
+        [
+            '@docusaurus/plugin-content-docs',
+            {
+                id: 'docsORM',
+                path: 'docsORM',
+                routeBasePath: 'docsORM'
+            }
+        ],
     ],
 
     themeConfig:
@@ -123,6 +131,7 @@ const config = {
                     {to: '/docsDB/category/MySQL', label: '数据库', position: 'left'},
                     {to: '/docsWeb/HTML', label: '前端', position: 'left'},
                     {to: '/docsSpring/SpringSecurity/SpringSecurity入门', label: 'Spring全家桶', position: 'left'},
+                    {to: '/docsORM/MybatisPlus/MybatisPlus简介', label: 'ORM框架', position: 'left'},
                     {to: '/blog', label: '博客', position: 'left'},
                     {
                         label: '更多',
