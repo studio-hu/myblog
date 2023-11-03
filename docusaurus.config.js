@@ -106,6 +106,14 @@ const config = {
                 routeBasePath: 'docsORM'
             }
         ],
+        [
+            '@docusaurus/plugin-content-docs',
+            {
+                id: 'docsOther',
+                path: 'docsOther',
+                routeBasePath: 'docsOther'
+            }
+        ],
     ],
 
     themeConfig:
@@ -138,6 +146,7 @@ const config = {
                         position: 'left',
                         items: [
                             {to: '/docsGit/git', label: 'Git'},
+                            {to: '/docsOther/Api文档工具', label: 'Api文档工具'},
                         ],
                     },
                     {
