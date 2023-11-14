@@ -196,7 +196,7 @@ const config = {
                         ],
                     },
                 ],
-                copyright: `Copyright © ${new Date().getFullYear()} 小胡的个人星球.&nbsp;&nbsp;<a href="https://beian.miit.gov.cn">粤ICP备2022145980号</a>`,
+                copyright: `Copyright © ${new Date().getFullYear()} 小胡的个人星球.&nbsp;&nbsp;<a href="https://beian.miit.gov.cn">粤ICP备2022145980号-1</a>`,
             },
             prism: {
                 theme: lightCodeTheme,
