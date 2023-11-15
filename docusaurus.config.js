@@ -6,8 +6,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: '全栈开发工程师养成记',
-    tagline: '欢迎来到我的星球',
+    title: '小胡的个人星球',
+    // title: '全栈开发工程师养成记',
+    // tagline: '欢迎来到我的星球',
     favicon: 'img/favicon_logo.ico',
 
     // Set the production url of your site here
