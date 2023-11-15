@@ -32,6 +32,7 @@ export default function Home() {
     <Layout
       // title={`欢迎来到${siteConfig.title}`}
       // title={`小胡的个人星球`}
+      // title={`小胡的个人星球`}
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main>
