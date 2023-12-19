@@ -805,6 +805,16 @@ public class MyAuthenticationHandler implements AccessDeniedHandler, Authenticat
 }
 ```
 
+### 认证异常：
+
+未携带token去访问：报`InsufficientAuthenticationException`错误
+
+用户被禁用：报`DisabledException`错误
+
+用户名或密码错误：报`BadCredentialsException`错误
+
+
+
 ### 6.2配置
 
 先注入IOC容器中
