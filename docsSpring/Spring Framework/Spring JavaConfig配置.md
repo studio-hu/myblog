@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# Spring-JavaConfig配置
+# Spring JavaConfig配置
 
 ## 一、概要
 

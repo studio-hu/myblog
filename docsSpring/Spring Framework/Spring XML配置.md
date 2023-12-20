@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Spring-XML配置
+# Spring XML配置
 
 ## 一、入门案例
 

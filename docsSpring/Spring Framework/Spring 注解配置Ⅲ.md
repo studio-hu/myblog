@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# Spring-注解配置Ⅲ
+# Spring 注解配置Ⅲ
 
 ## 注册组件到容器
 

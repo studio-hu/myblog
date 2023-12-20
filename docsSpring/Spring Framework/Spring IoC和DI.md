@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 ---
-# Spring-IoC和DI
+# Spring IoC和DI
 
 ## 一、概要
 
