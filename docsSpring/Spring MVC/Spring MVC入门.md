@@ -42,3 +42,76 @@ SpringMVC 是 Spring 为表述层开发提供的一整套完备的解决方案�
 - **代码清新简洁**，大幅度提升开发效率
 - 内部组件化程度高，可插拔式组件**即插即用**，想要什么功能配置相应组件即可
 - **性能卓著**，尤其适合现代大型、超大型互联网项目要求
+
+
+
+## 二、入门案例
+
+### 1.导入依赖
+
+```xml
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webmvc</artifactId>
+    <version>6.1.0</version>
+</dependency>
+<dependency>
+    <groupId>jakarta.servlet</groupId>
+    <artifactId>jakarta.servlet-api</artifactId>
+    <version>6.0.0</version>
+    <scope>provided</scope>
+</dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.15.2</version>
+</dependency>
+```
+
+### 2、在resources中创建spring-mvc.xml
+
+```xml
+<context:component-scan base-package="top.hyqstudio.controller"/>
+<!--spring mvc内置注解的支持 -->
+<mvc:annotation-driven/>
+```
+
+### 3、在web.xml配置
+
+```xml
+<servlet>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring-mvc.xml</param-value>
+    </init-param>
+</servlet>
+<servlet-mapping>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <url-pattern>/*</url-pattern>
+</servlet-mapping>
+```
+
+### 4、创建Controller
+
+```java
+@RestController
+public class HelloController {
+    @RequestMapping("/hello")
+    public String hello(){        
+        return "hello";
+    }
+}
+```
+
+
+
+
+
+
+
+
+
+
+

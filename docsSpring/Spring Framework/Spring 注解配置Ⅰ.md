@@ -81,7 +81,7 @@ public class User {
 
 #### 说明
 
-当一个组件代表业务层时，可以使用@Service进行注解，bean 的ID 默认为类名称开头字母小写 
+当一个组件代表业务层时，可以使用@Controller进行注解，bean 的ID 默认为类名称开头字母小写 
 
 #### 示例
 
