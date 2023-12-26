@@ -2,9 +2,11 @@
 sidebar_position: 5
 ---
 
-# Spring MVC请求参数常用注解
+# Spring MVC常用注解
 
-## 概要
+## 一、Spring MVC请求参数常用注解
+
+**概要**
 
 处理方法参数绑定常用的注解,我们根据他们处理的Request的不同内容部分分为三大类
 
@@ -12,9 +14,9 @@ sidebar_position: 5
 2. 处理request body部分的注解：@RequestParam,  @RequestBody;
 3. 处理attribute类型是注解： @SessionAttributes, @ModelAttribute;
 
-## 一、@RequestParam（重点）
+### 1.@RequestParam（重点）
 
-### 作用
+**作用**
 
 在处理方法入参处使用 @RequestParam 可以把请求参数传递给请求方法，
 
@@ -22,7 +24,7 @@ sidebar_position: 5
 2. 当客服端必传参数的时候
 3. 当需要给参数赋默认值的时候
 
-### 源码
+**源码**
 
 ```java
 @Target({ElementType.PARAMETER})
@@ -38,7 +40,7 @@ public @interface RequestParam {
 }
 ```
 
-### 属性
+**属性**
 
 | 属性                  | 说明                                                         |
 | --------------------- | ------------------------------------------------------------ |
@@ -46,7 +48,7 @@ public @interface RequestParam {
 | boolean required()    | 请求参数中是否必须提供此参数。默认值：true。表示必须提供，如果不提供将报错。 |
 | String defaultValue() | 提供默认值                                                   |
 
-### 示例
+**示例**
 
 **给参数起别名**
 
@@ -80,19 +82,19 @@ public class RequestParamController {
 }
 ```
 
-## 二、@RequestBody（重点）
+### 2.@RequestBody（重点）
 
-### 作用
+**作用**
 
 该注解用于读取Request**请求的body部分数据**(get请求没有请求体,所以不能使用)
 
 应用场景是`POST`或者`PUT`,DELETE 的数据是JSON格式或者XML格式,而不是普通的键值对形式
 
-### 注意
+**注意**
 
 单个参数不用加@RequestBody、可以用@RequestParam
 
-### 源码
+**源码**
 
 ```java
 @Target({ElementType.PARAMETER})
@@ -102,13 +104,13 @@ public @interface RequestBody {
 }
 ```
 
-### 属性
+**属性**
 
 | 参数               | 说明                                               |
 | ------------------ | -------------------------------------------------- |
 | boolean required() | 是否必须有请求体。默认值是:true。当取值为 true 时, |
 
-### 前期准备工作
+**前期准备工作**
 
 **导入包默认使用jackson转化**
 
@@ -120,7 +122,7 @@ public @interface RequestBody {
 </dependency>
 ```
 
-### 示例
+**示例**
 
 **基本使用**
 
@@ -187,13 +189,13 @@ public class ShopController {
     </script>
 ```
 
-## 三、@PathVariable（重点）
+### 3.@PathVariable（重点）
 
-### 作用
+**作用**
 
 > 用于绑定url中的占位符,从请求路径中获取参数
 
-### 源码
+**源码**
 
 ```java
 @Target(ElementType.PARAMETER)
@@ -212,14 +214,14 @@ public @interface PathVariable {
 
 ```
 
-### 属性
+**属性**
 
 | 属性       | 说明                      |
 | ---------- | ------------------------- |
 | value/name | 用于指定url中占位符的名称 |
 | required   | 是否必须提供占位符        |
 
-### 示例
+**示例**
 
 请求路径
 
@@ -232,13 +234,13 @@ public String testPath(@PathVariable(value = "page1") Integer page, @PathVariabl
 }
 ```
 
-## 三、@RequestHeader
+### 4.@RequestHeader
 
-### 作用
+**作用**
 
 可以把Request请求header部分的值绑定到方法的参数上。
 
-### 源码
+**源码**
 
 ```java
 @Target({ElementType.PARAMETER})
@@ -255,7 +257,7 @@ public @interface RequestHeader {
 
 ```
 
-### 属性
+**属性**
 
 | 属性                  | 说明                                                         |
 | --------------------- | ------------------------------------------------------------ |
@@ -263,7 +265,7 @@ public @interface RequestHeader {
 | boolean required()    | 请求参数中是否必须提供此参数。默认值：true。表示必须提供，如果不提供将报错。 |
 | String defaultValue() | 提供默认值                                                   |
 
-### 示例
+**示例**
 
 ```java
 @RestController
@@ -285,13 +287,13 @@ public class RequestHeaderController {
 }
 ```
 
-## 四、@CookieValue
+### 5.@CookieValue
 
-### 作用
+**作用**  
 
 用来获取Cookie中的值
 
-### 源码
+**源码**
 
 ```java
 @Target({ElementType.PARAMETER})
@@ -306,7 +308,7 @@ public @interface CookieValue {
 }
 ```
 
-### 属性
+**属性**
 
 | 属性                  | 说明                                                         |
 | --------------------- | ------------------------------------------------------------ |
@@ -314,7 +316,7 @@ public @interface CookieValue {
 | boolean required()    | 请求参数中是否必须提供此参数。默认值：true。表示必须提供，如果不提供将报错。 |
 | String defaultValue() | 提供默认值                                                   |
 
-### 示例
+**示例**
 
 ```java
 @RestController
@@ -327,5 +329,52 @@ public class RequestHeaderController {
 }
 ```
 
+## 二、Spring MVC响应常用注解
 
+### 1.@ResponseBody（重点）
 
+**作用**
+
+该注解用于将Controller的方法返回的对象，通过适当的HttpMessageConverter转换为指定格式后，可以将该方法的返回值直接作为响应报文的响应体响应到
+
+浏览器
+
+**源码**
+
+```java
+@Target({ElementType.TYPE, ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface ResponseBody {
+}
+```
+
+**示例**
+
+导入Jackson依赖
+
+```xml
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.16.0</version>
+</dependency>
+```
+
+### 2.@RestController（重点）
+
+> @RestController注解是springMVC提供的一个复合注解，标识在控制器的类上，就相当于为类添加了@Controller注解，并且为其中的每个方法添加了@ResponseBody注解
+
+**源码**
+
+```java
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Controller
+@ResponseBody
+public @interface RestController {
+    @AliasFor(annotation = Controller.class)
+    String value() default "";
+}
+```

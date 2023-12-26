@@ -115,6 +115,14 @@ const config = {
                 routeBasePath: 'docsOther'
             }
         ],
+        [
+            '@docusaurus/plugin-content-docs',
+            {
+                id: 'docsInterview',
+                path: 'docsInterview',
+                routeBasePath: 'docsInterview'
+            }
+        ],
     ],
 
     themeConfig:
@@ -148,6 +156,7 @@ const config = {
                         items: [
                             {to: '/docsGit/git', label: 'Git'},
                             {to: '/docsOther/Api文档工具', label: 'Api文档工具'},
+                            {to: '/docsInterview/基础面试题大纲', label: '面试题'},
                         ],
                     },
                     {
