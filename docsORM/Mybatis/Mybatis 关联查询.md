@@ -476,7 +476,7 @@ Mapper.xml
 
 
 
-## 分页插件PagerHelper（推荐用法）
+## 分页插件PageHelper（推荐用法）
 
 ### 导入依赖
 
