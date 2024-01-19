@@ -56,6 +56,8 @@
 
 11）DispatcherServlet 响应用户。
 
+![](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202401041354465.png)
+
 ## 6、SpringMvc 的控制器是不是单例模式,如果是,有什么问题,怎么解决？
 
 答：是单例模式,所以在多线程访问的时候有线程安全问题,不要用同步,会影响性能的,解决 方案是在控制器里面不能写字段。
