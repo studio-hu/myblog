@@ -1,8 +1,12 @@
+---
+sidebar_position: 2
+---
+
 # Shiro自定义认证
 
 ## 一、自定义Realm
 
-**`AuthenticatingRealm`**：Realm 接口的顶级抽象实现，它只实现身份验证支持（登录）操作，并将授权（访问控制）行为留给子类；可以继承`AuthenticatingRealm`抽象类来实现自定义验证
+**`AuthenticatingRealm`**：Realm 接口的顶级抽象实现，它只实现身份验证支持（登录）操作，并将授权（访问控制）行为留给子类；可以继承`AuthenticatingRealm`抽象类来实现自定义认证
 
 ```java title="UserRealm.java"
 /**

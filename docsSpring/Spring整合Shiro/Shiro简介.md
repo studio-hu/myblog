@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Shiro入门
 
 ## 一、Shiro简介
