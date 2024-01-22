@@ -123,6 +123,14 @@ const config = {
                 routeBasePath: 'docsInterview'
             }
         ],
+        [
+            '@docusaurus/plugin-content-docs',
+            {
+                id: 'docsUtils',
+                path: 'docsUtils',
+                routeBasePath: 'docsUtils'
+            }
+        ],
     ],
 
     themeConfig:
@@ -149,6 +157,7 @@ const config = {
                     {to: '/docsWeb/HTML', label: '前端', position: 'left'},
                     {to: '/docsSpring/Spring%20Framework/Spring%20Framework简介', label: 'Spring全家桶', position: 'left'},
                     {to: '/docsORM/Mybatis/Mybatis简介', label: 'ORM框架', position: 'left'},
+                    {to: '/docsUtils/JWT/java-jwt', label: '工具类', position: 'left'},
                     {to: '/blog', label: '博客', position: 'left'},
                     {
                         label: '更多',
