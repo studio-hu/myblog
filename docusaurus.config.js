@@ -155,9 +155,13 @@ const config = {
                     {to: '/docsJava/category/JavaSE', label: 'Java基础', position: 'left'},
                     {to: '/docsDB/category/MySQL', label: '数据库', position: 'left'},
                     {to: '/docsWeb/HTML', label: '前端', position: 'left'},
-                    {to: '/docsSpring/Spring%20Framework/Spring%20Framework简介', label: 'Spring全家桶', position: 'left'},
+                    {
+                        to: '/docsSpring/Spring%20Framework/Spring%20Framework简介',
+                        label: 'Spring全家桶',
+                        position: 'left'
+                    },
                     {to: '/docsORM/Mybatis/Mybatis简介', label: 'ORM框架', position: 'left'},
-                    {to: '/docsUtils/JWT/java-jwt', label: '工具类', position: 'left'},
+                    {to: '/docsUtils/JWT/JWT简介', label: '工具类', position: 'left'},
                     {to: '/blog', label: '博客', position: 'left'},
                     {
                         label: '更多',
@@ -223,7 +227,17 @@ const config = {
             },
         }),
     scripts: [
-        './custom.js'
+        {
+            src: "https://www.googletagmanager.com/gtag/js?id=G-CWCJL42HYF",
+            async: true
+        },
+        {
+            src: "./custom.js"
+        },
+        {
+            src: "https://hm.baidu.com/hm.js?6abb59ea7149410faf302384de5084e4",
+            async: true
+        }
     ],
 };
 
