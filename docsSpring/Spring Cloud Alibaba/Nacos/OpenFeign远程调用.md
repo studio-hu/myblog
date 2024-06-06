@@ -109,11 +109,100 @@ public class OrderController {
 
 ### 2.在Nacos中配置权重
 
+>Nacos提供了权重配置来控制访问频率，权重越大则访问频率越高（0~1）
+
 ![image-20240605232520757](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202406052325797.png)
 
 ![image-20240605232501962](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202406052325997.png)
 
-## 三、最佳实践
+### 3.配置集群
+
+- 部署GZ集群（order-service和user-service）
+
+![image-20240606215634247](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202406062156282.png)
+
+- 部署SZ集群（order-service）
+
+#### 1）复制一份运行配置
+
+![image-20240606215422967](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202406062154028.png)
+
+#### 2）修改端口号和集群
+
+![image-20240606215529423](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202406062155472.png)
+
+![image-20240606215534122](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202406062155164.png)
+
+- 重启服务
+
+![image-20240606215935650](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202406062159683.png)
+
+> 目前order-service有SZ和GZ两个集群，SZ集群一个实例，GZ集群两个实例
+>
+> user-service只有GZ集群一个实例
+
+![image-20240606220145411](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202406062201452.png)
+
+order-service：
+
+![image-20240606220205802](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202406062202846.png)
+
+user-service：
+
+![image-20240606220238936](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202406062202971.png)
+
+**user-service发起远程调用时，优先访问同集群下的服务，同集群内随机挑选；当同集群不可用时，再跨集群调用**
+
+## 三、环境隔离
+
+Nacos提供了namespace来实现环境隔离功能。
+
+- nacos中可以有多个namespace
+- namespace下可以有group、service等
+- 不同namespace之间相互隔离，例如不同namespace的服务互相不可见
+
+### 1.创建namespace为dev
+
+> 默认情况下，所有service、data、group都在同一个namespace，名为public
+
+![image-20240606221132655](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202406062211691.png)
+
+点击新增按钮，新增dev命名空间
+
+![image-20240606221227261](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202406062212305.png)
+
+![image-20240606221329840](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202406062213880.png)
+
+### 2.给微服务配置namespace
+
+修改user-service的application.yml文件为：
+
+```yml
+spring:
+  application:
+    name: user-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        cluster-name: GZ
+        namespace: e675c8c6-3ba5-49d5-b2f8-173fd70569bb # 命名空间
+    loadbalancer:
+      nacos:
+        enabled: true
+```
+
+重启服务，访问控制台，可以看到多了一个dev
+
+![image-20240606221752834](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202406062217872.png)
+
+![image-20240606221818977](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202406062218013.png)
+
+此时访问user-service，因为namespace不同，会导致找不到order-service，控制台会报错：
+
+![image-20240606221941905](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202406062219944.png)
+
+## 四、最佳实践
 
 ### 1.Feign底层的客户端实现
 
