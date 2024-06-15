@@ -131,6 +131,14 @@ const config = {
                 routeBasePath: 'docsUtils'
             }
         ],
+        [
+            '@docusaurus/plugin-content-docs',
+            {
+                id: 'docsSolution',
+                path: 'docsSolution',
+                routeBasePath: 'docsSolution'
+            }
+        ],
     ],
 
     themeConfig:
@@ -162,6 +170,7 @@ const config = {
                     },
                     {to: '/docsORM/Mybatis/Mybatis简介', label: 'ORM框架', position: 'left'},
                     {to: '/docsUtils/JWT/JWT简介', label: '工具类', position: 'left'},
+                    {to: '/docsSolution/幂等性/什么是幂等', label: '业务场景', position: 'left'},
                     {to: '/blog', label: '博客', position: 'left'},
                     {
                         label: '更多',

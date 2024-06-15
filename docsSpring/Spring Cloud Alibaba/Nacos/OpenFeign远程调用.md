@@ -102,8 +102,13 @@ public class OrderController {
 ## 二、负载均衡
 
 > 默认的负载均衡策略为：**轮询**策略
+>
+> SpringCloud新版本（2021.x.x）中负载均衡器用LoadBalancer替代了Ribbon，默认只提供了2种负载均衡策略：RandomLoadBalancer 和 RoundRobinLoadBalancer。
+> SpringCloud Alibaba Nacos 2021.1版本提供了基于Nacos注册中心的轮询策略 NacosLoadBalancer 是基于权重的策略。
 
 ### 1.开启Nacos权重负载均衡
+
+> NacosLoadBalancer的权重策略默认是关闭的。**仅识别流量值为0（不引入流量）和非0（引入流量），不支持按照Nacos实例中的流量值进行流量负载均衡。** 如果要使用基于权重的负载策略要手动开启。
 
 ![image-20240605232404865](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202406052324900.png)
 
@@ -249,7 +254,7 @@ feign:
     enabled: true
     max-connections: 200  # 最大的连接数
     max-connections-per-route: 50 # 每个路径的最大连接数
-
+# springboot默认的日志级别是info，feign的日志级别为dubug
 logging:
   level:
     top.hyqstudio.user.feign: debug
@@ -284,10 +289,10 @@ feign:
     max-connections-per-route: 50 # 每个路径的最大连接数
   okhttp:
     enabled: true
-
+# springboot默认的日志级别是info，feign的日志级别为dubug
 logging:
   level:
-    top.hyqstudio.user.feign: debug
+    top.hyqstudio.user.feign: debug 
 ```
 
 ![image-20240606172652224](https://cdn.jsdelivr.net/gh/studio-hu/drawingBed/img/202406061726259.png)
