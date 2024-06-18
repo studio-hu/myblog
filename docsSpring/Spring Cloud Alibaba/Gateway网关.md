@@ -296,7 +296,7 @@ spring:
         add-to-simple-url-handler-mapping: true #解决options请求被拦截问题
         cors-configurations:
           '[/**]':
-            allowedOrigins: #允许哪些网站的跨域
+            allowedOriginPatterns: #允许哪些网站的跨域
               - "*"
             allowedMethods: #允许跨域的ajax请求方式
               - GET
